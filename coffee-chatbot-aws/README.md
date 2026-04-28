@@ -2,6 +2,8 @@
 
 ## Live Demo
 http://coffee-chatbot-osamah.s3-website-us-east-1.amazonaws.com/
+<img width="1785" height="964" alt="image" src="https://github.com/user-attachments/assets/9f1d3b0b-4721-4bde-be98-377d4ad6efca" />
+
 
 ## Overview
 Developed a cloud-based chatbot using AWS services to automate customer interactions and coffee ordering.
