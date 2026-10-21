@@ -1,0 +1,13 @@
+Fraud Detection - Drift Report
+======================================================================
+Reference (training) rows: 100,000 | New batch rows: 20,000
+Simulation: new batch generated with amount_shift=1.35 (all amounts x1.35) and fraud rate 2.6%.
+
+Amount PSI:            0.1812  -> moderate shift - investigate
+Velocity PSI:          0.2679  -> SIGNIFICANT shift - retrain / recalibrate
+
+Amount mean:   train $76.32 -> new $109.16
+Amount median: train $55.90 -> new $76.75
+Fraud rate:    train 1.85% -> new 2.66% (label drift this large would also move the optimal threshold — re-run src/evaluate.py on fresh labelled data).
+
+Interpretation: the amount feature has drifted exactly as simulated, so a production monitor would page the ML owner to check whether the cause is benign (inflation, new market) or an attack pattern, and to schedule recalibration / retraining if the shift persists.

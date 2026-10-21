@@ -1,0 +1,15 @@
+Fraud Detection - Training Results
+==============================================================================
+
+Dataset: 100,000 synthetic transactions, fraud rate 1.85%
+Split: stratified 80/20 (random_state=42). Model selection: 3-fold CV PR-AUC on the training set.
+Test-set metrics below use the default 0.50 threshold; src/evaluate.py selects the operating threshold.
+
+                        cv_pr_auc  cv_roc_auc  accuracy  precision  recall      f1  roc_auc  pr_auc
+model                                                                                              
+logistic_regression        0.9667      0.9976    0.9851     0.5550  0.9702  0.7061   0.9984  0.9659
+random_forest              0.9508      0.9964    0.9964     0.9136  0.8889  0.9011   0.9980  0.9526
+hist_gradient_boosting     0.9490      0.9966    0.9910     0.6842  0.9512  0.7959   0.9980  0.9559
+
+Best model (CV PR-AUC): logistic_regression
+Saved to: /home/hatch/workspace/job-search/projects/fraud-detection/models/model.joblib

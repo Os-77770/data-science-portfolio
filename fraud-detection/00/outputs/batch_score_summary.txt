@@ -1,0 +1,10 @@
+Fraud Detection - Batch Scoring Summary
+============================================================
+Rows scored:            5,000
+Model:                  logistic_regression
+Operating threshold:    0.80
+Alerts raised:          106 (2.12% of traffic)
+True fraud in sample:   80 (1.60%)
+Fraud caught (recall):  87.5%
+Alert precision:        66.0%
+Est. review workload:   106 alerts x $10 = $1,060
