@@ -1,0 +1,7 @@
+PostgreSQL Customer Analytics — headline results
+====================================================
+Overall churn rate:            30.21%
+Worst segment:                 Month-to-month / 0-6 months at 62.35%
+Total billed revenue analysed: $14,483,269.68 across 72 months
+Peak revenue month:            2024-12-01 ($475,983.85, 8000 active customers)
+Riskiest behaviour bucket:     5+ support calls + 3+ late payments -> 58.33% churn (12 customers)

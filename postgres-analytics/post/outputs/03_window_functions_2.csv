@@ -1,0 +1,16 @@
+contract_type,customer_id,lifetime_billed,months_billed,value_rank,pct_of_segment_revenue
+Month-to-month,CUST-05702,8149.12,72,1,0.101
+Month-to-month,CUST-05551,8140.19,72,2,0.101
+Month-to-month,CUST-01133,8062.01,72,3,0.100
+Month-to-month,CUST-04420,7774.59,72,4,0.096
+Month-to-month,CUST-03564,7472.88,72,5,0.093
+One year,CUST-05337,7383.32,70,1,0.192
+One year,CUST-04938,7276.53,72,2,0.189
+One year,CUST-04993,7230.41,72,3,0.188
+One year,CUST-00021,7054.73,72,4,0.183
+One year,CUST-05142,7018.20,72,5,0.183
+Two year,CUST-06327,7745.01,72,1,0.302
+Two year,CUST-02582,7336.12,72,2,0.286
+Two year,CUST-03888,7283.37,72,3,0.284
+Two year,CUST-05250,7280.91,72,4,0.284
+Two year,CUST-05455,7047.93,72,5,0.275

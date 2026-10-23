@@ -1,0 +1,16 @@
+customer_id,contract_type,internet_service,tenure_months,support_calls,late_payments,monthly_charges,charge_quartile
+CUST-05702,Month-to-month,Fiber optic,72,3,2,113.29,4
+CUST-03491,One year,Fiber optic,59,3,2,104.37,4
+CUST-04947,One year,Fiber optic,11,4,2,103.47,4
+CUST-05366,Two year,Fiber optic,24,4,2,102.04,4
+CUST-00915,Two year,Fiber optic,19,3,2,101.93,4
+CUST-03778,Month-to-month,Fiber optic,14,3,3,101.32,4
+CUST-06711,Month-to-month,Fiber optic,51,3,2,100.90,4
+CUST-05298,Month-to-month,Fiber optic,39,3,2,100.30,4
+CUST-04576,Month-to-month,Fiber optic,55,3,2,99.29,4
+CUST-03378,Two year,Fiber optic,42,5,2,97.70,4
+CUST-06114,Two year,Fiber optic,52,4,2,97.47,4
+CUST-04586,One year,Fiber optic,61,3,3,96.91,4
+CUST-04679,Month-to-month,Fiber optic,42,5,2,96.54,4
+CUST-06595,Two year,Fiber optic,31,3,2,96.21,4
+CUST-00437,Month-to-month,Fiber optic,36,3,3,95.70,4

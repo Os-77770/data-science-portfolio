@@ -1,0 +1,176 @@
+
+===== 02_churn_by_segment.sql — statement 1 (15 rows) -> 02_churn_by_segment_1.csv =====
+ contract_type  tenure_band  customers  churned_customers churn_rate_pct overall_churn_pct  churn_rank_within_contract
+Month-to-month   0-6 months        255                159          62.35             30.21                           1
+Month-to-month  7-12 months        560                304          54.29             30.21                           2
+Month-to-month 13-24 months       1228                586          47.72             30.21                           3
+Month-to-month 25-48 months       1575                511          32.44             30.21                           4
+Month-to-month   49+ months        828                110          13.29             30.21                           5
+      One year   0-6 months        124                 53          42.74             30.21                           1
+      One year  7-12 months        275                115          41.82             30.21                           2
+      One year 13-24 months        590                175          29.66             30.21                           3
+      One year 25-48 months        784                126          16.07             30.21                           4
+      One year   49+ months        367                 19           5.18             30.21                           5
+      Two year   0-6 months         81                 30          37.04             30.21                           1
+      Two year  7-12 months        213                 59          27.70             30.21                           2
+      Two year 13-24 months        371                 74          19.95             30.21                           3
+      Two year 25-48 months        478                 86          17.99             30.21                           4
+      Two year   49+ months        271                 10           3.69             30.21                           5
+
+===== 03_window_functions.sql — statement 1 (72 rows) -> 03_window_functions_1.csv =====
+billing_month  active_customers   revenue mom_change mom_change_pct running_total_revenue revenue_3mo_avg
+   2019-01-01               422  26234.95       None           None              26234.95        26234.95
+   2019-02-01               446  27693.94    1458.99           5.56              53928.89        26964.45
+   2019-03-01               482  30001.00    2307.06           8.33              83929.89        27976.63
+   2019-04-01               509  31524.50    1523.50           5.08             115454.39        29739.81
+   2019-05-01               540  33337.47    1812.97           5.75             148791.86        31620.99
+   2019-06-01               567  34714.17    1376.70           4.13             183506.03        33192.05
+   2019-07-01               604  36724.99    2010.82           5.79             220231.02        34925.54
+   2019-08-01               631  38608.94    1883.95           5.13             258839.96        36682.70
+   2019-09-01               664  40588.66    1979.72           5.13             299428.62        38640.86
+   2019-10-01               710  43331.19    2742.53           6.76             342759.81        40842.93
+   2019-11-01               748  45930.02    2598.83           6.00             388689.83        43283.29
+   2019-12-01               784  48412.59    2482.57           5.41             437102.42        45891.27
+   2020-01-01               828  50773.47    2360.88           4.88             487875.89        48372.03
+   2020-02-01               872  53308.39    2534.92           4.99             541184.28        50831.48
+   2020-03-01               913  55710.92    2402.53           4.51             596895.20        53264.26
+   2020-04-01               959  58839.43    3128.51           5.62             655734.63        55952.91
+   2020-05-01              1020  62478.54    3639.11           6.18             718213.17        59009.63
+   2020-06-01              1080  66190.72    3712.18           5.94             784403.89        62502.90
+   2020-07-01              1130  69250.17    3059.45           4.62             853654.06        65973.14
+   2020-08-01              1191  72665.53    3415.36           4.93             926319.59        69368.81
+   2020-09-01              1263  77277.20    4611.67           6.35            1003596.79        73064.30
+   2020-10-01              1325  80893.24    3616.04           4.68            1084490.03        76945.32
+   2020-11-01              1395  85153.32    4260.08           5.27            1169643.35        81107.92
+   2020-12-01              1466  89380.25    4226.93           4.96            1259023.60        85142.27
+   2021-01-01              1534  93754.15    4373.90           4.89            1352777.75        89429.24
+   2021-02-01              1615  98449.52    4695.37           5.01            1451227.27        93861.31
+   2021-03-01              1685 102719.05    4269.53           4.34            1553946.32        98307.57
+   2021-04-01              1778 108045.00    5325.95           5.18            1661991.32       103071.19
+   2021-05-01              1857 112613.88    4568.88           4.23            1774605.20       107792.64
+   2021-06-01              1947 118279.45    5665.57           5.03            1892884.65       112979.44
+
+===== 03_window_functions.sql — statement 2 (15 rows) -> 03_window_functions_2.csv =====
+ contract_type customer_id lifetime_billed  months_billed  value_rank pct_of_segment_revenue
+Month-to-month  CUST-05702         8149.12             72           1                  0.101
+Month-to-month  CUST-05551         8140.19             72           2                  0.101
+Month-to-month  CUST-01133         8062.01             72           3                  0.100
+Month-to-month  CUST-04420         7774.59             72           4                  0.096
+Month-to-month  CUST-03564         7472.88             72           5                  0.093
+      One year  CUST-05337         7383.32             70           1                  0.192
+      One year  CUST-04938         7276.53             72           2                  0.189
+      One year  CUST-04993         7230.41             72           3                  0.188
+      One year  CUST-00021         7054.73             72           4                  0.183
+      One year  CUST-05142         7018.20             72           5                  0.183
+      Two year  CUST-06327         7745.01             72           1                  0.302
+      Two year  CUST-02582         7336.12             72           2                  0.286
+      Two year  CUST-03888         7283.37             72           3                  0.284
+      Two year  CUST-05250         7280.91             72           4                  0.284
+      Two year  CUST-05455         7047.93             72           5                  0.275
+
+===== 04_cohort_retention.sql — statement 1 (24 rows) -> 04_cohort_retention_1.csv =====
+cohort_quarter  cohort_customers  retained_customers churn_rate_pct avg_tenure_months cohort_lifetime_revenue revenue_per_customer
+    2019-01-01               482                 446           7.47              71.8              2146389.74              4453.09
+    2019-04-01                85                  77           9.41              68.0               330671.48              3890.25
+    2019-07-01                97                  88           9.28              65.0               379082.59              3908.07
+    2019-10-01               120                 113           5.83              62.1               486521.60              4054.35
+    2020-01-01               129                 109          15.50              59.0               434819.83              3370.70
+    2020-04-01               167                 148          11.38              55.9               586529.11              3512.15
+    2020-07-01               183                 170           7.10              52.9               585731.85              3200.72
+    2020-10-01               203                 176          13.30              50.0               608077.54              2995.46
+    2021-01-01               219                 181          17.35              47.0               620663.78              2834.08
+    2021-04-01               262                 218          16.79              44.0               682115.41              2603.49
+    2021-07-01               258                 209          18.99              40.9               630907.67              2445.38
+    2021-10-01               339                 265          21.83              38.0               762617.15              2249.61
+    2022-01-01               373                 277          25.74              35.1               783808.85              2101.36
+    2022-04-01               411                 283          31.14              31.9               778763.93              1894.80
+    2022-07-01               440                 313          28.86              28.9               757929.93              1722.57
+    2022-10-01               535                 368          31.21              26.0               800331.96              1495.95
+    2023-01-01               520                 335          35.58              23.1               734466.66              1412.44
+    2023-04-01               572                 361          36.89              20.0               665031.65              1162.64
+    2023-07-01               551                 327          40.65              17.0               547543.37               993.73
+    2023-10-01               546                 331          39.38              14.0               435394.22               797.43
+    2024-01-01               543                 308          43.28              11.0               354187.91               652.28
+    2024-04-01               505                 262          48.12               8.1               249950.99               494.95
+    2024-07-01               351                 176          49.86               5.1               104638.23               298.11
+    2024-10-01               109                  42          61.47               2.6                17094.23               156.83
+
+===== 04_cohort_retention.sql — statement 2 (72 rows) -> 04_cohort_retention_2.csv =====
+cohort_quarter  contract_type  customers churn_rate_pct
+    2019-01-01 Month-to-month        281          11.74
+    2019-01-01       One year        111           0.90
+    2019-01-01       Two year         90           2.22
+    2019-04-01 Month-to-month         43          13.95
+    2019-04-01       One year         26           7.69
+    2019-04-01       Two year         16           0.00
+    2019-07-01 Month-to-month         61          13.11
+    2019-07-01       One year         20           0.00
+    2019-07-01       Two year         16           6.25
+    2019-10-01 Month-to-month         64           9.38
+    2019-10-01       One year         33           0.00
+    2019-10-01       Two year         23           4.35
+    2020-01-01 Month-to-month         76          18.42
+    2020-01-01       One year         24          16.67
+    2020-01-01       Two year         29           6.90
+    2020-04-01 Month-to-month         84          15.48
+    2020-04-01       One year         47          10.64
+    2020-04-01       Two year         36           2.78
+    2020-07-01 Month-to-month        101           7.92
+    2020-07-01       One year         51           5.88
+    2020-07-01       Two year         31           6.45
+    2020-10-01 Month-to-month        118          18.64
+    2020-10-01       One year         55           7.27
+    2020-10-01       Two year         30           3.33
+    2021-01-01 Month-to-month        121          24.79
+    2021-01-01       One year         67           8.96
+    2021-01-01       Two year         31           6.45
+    2021-04-01 Month-to-month        141          23.40
+    2021-04-01       One year         77          10.39
+    2021-04-01       Two year         44           6.82
+
+===== 05_risk_segments.sql — statement 1 (16 rows) -> 05_risk_segments_1.csv =====
+support_call_band late_payment_band  customers churn_rate_pct
+               5+                3+         12          58.33
+               5+                 1         75          57.33
+               5+                 2         24          50.00
+              3-4                3+        100          48.00
+                0                3+         91          47.25
+              3-4                 2        270          44.44
+              1-2                3+        283          44.17
+               5+                 0         84          40.48
+              3-4                 1        570          37.37
+              1-2                 2        778          34.96
+              3-4                 0        643          33.75
+              1-2                 1       1678          31.47
+                0                 2        264          26.89
+                0                 1        582          23.02
+              1-2                 0       1882          22.79
+                0                 0        664          18.22
+
+===== 05_risk_segments.sql — statement 2 (15 rows) -> 05_risk_segments_2.csv =====
+customer_id  contract_type internet_service  tenure_months  support_calls  late_payments monthly_charges  charge_quartile
+ CUST-05702 Month-to-month      Fiber optic             72              3              2          113.29                4
+ CUST-03491       One year      Fiber optic             59              3              2          104.37                4
+ CUST-04947       One year      Fiber optic             11              4              2          103.47                4
+ CUST-05366       Two year      Fiber optic             24              4              2          102.04                4
+ CUST-00915       Two year      Fiber optic             19              3              2          101.93                4
+ CUST-03778 Month-to-month      Fiber optic             14              3              3          101.32                4
+ CUST-06711 Month-to-month      Fiber optic             51              3              2          100.90                4
+ CUST-05298 Month-to-month      Fiber optic             39              3              2          100.30                4
+ CUST-04576 Month-to-month      Fiber optic             55              3              2           99.29                4
+ CUST-03378       Two year      Fiber optic             42              5              2           97.70                4
+ CUST-06114       Two year      Fiber optic             52              4              2           97.47                4
+ CUST-04586       One year      Fiber optic             61              3              3           96.91                4
+ CUST-04679 Month-to-month      Fiber optic             42              5              2           96.54                4
+ CUST-06595       Two year      Fiber optic             31              3              2           96.21                4
+ CUST-00437 Month-to-month      Fiber optic             36              3              3           95.70                4
+
+PostgreSQL Customer Analytics — headline results
+====================================================
+Overall churn rate:            30.21%
+Worst segment:                 Month-to-month / 0-6 months at 62.35%
+Total billed revenue analysed: $14,483,269.68 across 72 months
+Peak revenue month:            2024-12-01 ($475,983.85, 8000 active customers)
+Riskiest behaviour bucket:     5+ support calls + 3+ late payments -> 58.33% churn (12 customers)
+
+Charts + CSVs written to /home/hatch/workspace/job-search/projects/postgres-analytics/outputs
