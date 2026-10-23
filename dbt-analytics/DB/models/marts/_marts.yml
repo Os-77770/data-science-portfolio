@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: int_customer_monthly
+    description: "Intermediate: billing rows enriched with customer attributes, plan, signup quarter and tenure band."
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+      - name: billing_month
+        tests:
+          - not_null
+
+  - name: mart_churn_segments
+    description: "Mart: customers, churned customers and churn rate by contract type and tenure band."
+    columns:
+      - name: contract_type
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Month-to-month', 'One year', 'Two year']
+      - name: churn_rate_pct
+        description: "Share of the segment's customers who churned, in percent."
+        tests:
+          - not_null
+
+  - name: mart_monthly_metrics
+    description: "Mart: monthly scorecard — active customers, revenue, new signups, churned customers."
+    columns:
+      - name: billing_month
+        tests:
+          - unique
+          - not_null
+      - name: revenue
+        tests:
+          - not_null

@@ -1,0 +1,68 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Cleaned customers: one row per customer with typed attributes and the churn outcome."
+    columns:
+      - name: customer_id
+        description: "Primary key. Source identifier like CUST-00001."
+        tests:
+          - unique
+          - not_null
+      - name: is_churned
+        description: "True if the customer had churned by the 2024-12-01 snapshot."
+        tests:
+          - not_null
+      - name: tenure_months
+        description: "Months between signup and the snapshot (or churn)."
+      - name: signup_month
+        description: "Calendar month the customer signed up (first of month)."
+
+  - name: stg_subscriptions
+    description: "Cleaned subscriptions: the plan each customer bought."
+    columns:
+      - name: subscription_id
+        description: "Primary key."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key to stg_customers."
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_customers')
+                field: customer_id
+      - name: contract_type
+        description: "Contract length the customer committed to."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Month-to-month', 'One year', 'Two year']
+      - name: internet_service
+        description: "Internet tier on the plan."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Fiber optic', 'DSL', 'No']
+
+  - name: stg_monthly_billing
+    description: "Cleaned billing facts: one row per customer per active month."
+    columns:
+      - name: customer_id
+        description: "Foreign key to stg_customers."
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_customers')
+                field: customer_id
+      - name: billing_month
+        description: "Calendar month billed (first of month)."
+        tests:
+          - not_null
+      - name: amount
+        description: "Amount billed that month in dollars."
+        tests:
+          - not_null

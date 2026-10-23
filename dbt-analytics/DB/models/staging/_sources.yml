@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: warehouse
+    description: "Raw landing tables loaded from CSV by src/load_raw.py. Untyped on purpose: all values arrive as strings, exactly as an ingestion tool would land them."
+    database: warehouse
+    schema: main
+    tables:
+      - name: raw_customers
+        description: "One row per customer: attributes and the churn outcome."
+      - name: raw_subscriptions
+        description: "One row per customer: the plan/contract they bought."
+      - name: raw_monthly_billing
+        description: "One row per customer per active month: the billed amount."

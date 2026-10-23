@@ -1,0 +1,68 @@
+15:54:55  Running with dbt=1.12.6
+15:54:56  Registered adapter: duckdb=1.11.0
+15:54:57  Found 6 models, 22 data tests, 3 sources, 500 macros
+15:54:57  
+15:54:57  Concurrency: 4 threads (target='dev')
+15:54:57  
+15:54:57  1 of 28 START sql view model main.stg_customers ................................ [RUN]
+15:54:57  2 of 28 START sql view model main.stg_monthly_billing .......................... [RUN]
+15:54:57  3 of 28 START sql view model main.stg_subscriptions ............................ [RUN]
+15:54:58  1 of 28 OK created sql view model main.stg_customers ........................... [OK in 0.23s]
+15:54:58  4 of 28 START test not_null_stg_customers_customer_id .......................... [RUN]
+15:54:58  5 of 28 START test not_null_stg_customers_is_churned ........................... [RUN]
+15:54:58  2 of 28 OK created sql view model main.stg_monthly_billing ..................... [OK in 0.26s]
+15:54:58  6 of 28 START test unique_stg_customers_customer_id ............................ [RUN]
+15:54:58  3 of 28 OK created sql view model main.stg_subscriptions ....................... [OK in 0.31s]
+15:54:58  7 of 28 START test assert_billing_grain_unique ................................. [RUN]
+15:54:58  4 of 28 PASS not_null_stg_customers_customer_id ................................ [PASS in 0.13s]
+15:54:58  8 of 28 START test not_null_stg_monthly_billing_amount ......................... [RUN]
+15:54:58  5 of 28 PASS not_null_stg_customers_is_churned ................................. [PASS in 0.14s]
+15:54:58  6 of 28 PASS unique_stg_customers_customer_id .................................. [PASS in 0.09s]
+15:54:58  9 of 28 START test not_null_stg_monthly_billing_billing_month .................. [RUN]
+15:54:58  10 of 28 START test not_null_stg_monthly_billing_customer_id ................... [RUN]
+15:54:58  7 of 28 PASS assert_billing_grain_unique ....................................... [PASS in 0.17s]
+15:54:58  11 of 28 START test relationships_stg_monthly_billing_customer_id__customer_id__ref_stg_customers_  [RUN]
+15:54:58  9 of 28 PASS not_null_stg_monthly_billing_billing_month ........................ [PASS in 0.16s]
+15:54:58  8 of 28 PASS not_null_stg_monthly_billing_amount ............................... [PASS in 0.19s]
+15:54:58  10 of 28 PASS not_null_stg_monthly_billing_customer_id ......................... [PASS in 0.15s]
+15:54:58  12 of 28 START test accepted_values_stg_subscriptions_contract_type__Month_to_month__One_year__Two_year  [RUN]
+15:54:58  13 of 28 START test accepted_values_stg_subscriptions_internet_service__Fiber_optic__DSL__No  [RUN]
+15:54:58  14 of 28 START test not_null_stg_subscriptions_customer_id ..................... [RUN]
+15:54:58  11 of 28 PASS relationships_stg_monthly_billing_customer_id__customer_id__ref_stg_customers_  [PASS in 0.17s]
+15:54:58  13 of 28 PASS accepted_values_stg_subscriptions_internet_service__Fiber_optic__DSL__No  [PASS in 0.08s]
+15:54:58  15 of 28 START test not_null_stg_subscriptions_subscription_id ................. [RUN]
+15:54:58  14 of 28 PASS not_null_stg_subscriptions_customer_id ........................... [PASS in 0.08s]
+15:54:58  16 of 28 START test relationships_stg_subscriptions_customer_id__customer_id__ref_stg_customers_  [RUN]
+15:54:58  12 of 28 PASS accepted_values_stg_subscriptions_contract_type__Month_to_month__One_year__Two_year  [PASS in 0.11s]
+15:54:58  17 of 28 START test unique_stg_subscriptions_subscription_id ................... [RUN]
+15:54:58  15 of 28 PASS not_null_stg_subscriptions_subscription_id ....................... [PASS in 0.07s]
+15:54:58  17 of 28 PASS unique_stg_subscriptions_subscription_id ......................... [PASS in 0.06s]
+15:54:58  16 of 28 PASS relationships_stg_subscriptions_customer_id__customer_id__ref_stg_customers_  [PASS in 0.08s]
+15:54:58  18 of 28 START sql view model main.int_customer_monthly ........................ [RUN]
+15:54:58  19 of 28 START sql table model main.mart_churn_segments ........................ [RUN]
+15:54:58  18 of 28 OK created sql view model main.int_customer_monthly ................... [OK in 0.16s]
+15:54:58  20 of 28 START test not_null_int_customer_monthly_billing_month ................ [RUN]
+15:54:58  21 of 28 START test not_null_int_customer_monthly_customer_id .................. [RUN]
+15:54:58  19 of 28 OK created sql table model main.mart_churn_segments ................... [OK in 0.23s]
+15:54:58  22 of 28 START test accepted_values_mart_churn_segments_contract_type__Month_to_month__One_year__Two_year  [RUN]
+15:54:58  23 of 28 START test not_null_mart_churn_segments_churn_rate_pct ................ [RUN]
+15:54:59  21 of 28 PASS not_null_int_customer_monthly_customer_id ........................ [PASS in 0.10s]
+15:54:59  20 of 28 PASS not_null_int_customer_monthly_billing_month ...................... [PASS in 0.11s]
+15:54:59  24 of 28 START test not_null_mart_churn_segments_contract_type ................. [RUN]
+15:54:59  25 of 28 START sql table model main.mart_monthly_metrics ....................... [RUN]
+15:54:59  23 of 28 PASS not_null_mart_churn_segments_churn_rate_pct ...................... [PASS in 0.09s]
+15:54:59  22 of 28 PASS accepted_values_mart_churn_segments_contract_type__Month_to_month__One_year__Two_year  [PASS in 0.09s]
+15:54:59  24 of 28 PASS not_null_mart_churn_segments_contract_type ....................... [PASS in 0.05s]
+15:54:59  25 of 28 OK created sql table model main.mart_monthly_metrics .................. [OK in 0.16s]
+15:54:59  26 of 28 START test not_null_mart_monthly_metrics_billing_month ................ [RUN]
+15:54:59  27 of 28 START test not_null_mart_monthly_metrics_revenue ...................... [RUN]
+15:54:59  28 of 28 START test unique_mart_monthly_metrics_billing_month .................. [RUN]
+15:54:59  27 of 28 PASS not_null_mart_monthly_metrics_revenue ............................ [PASS in 0.07s]
+15:54:59  28 of 28 PASS unique_mart_monthly_metrics_billing_month ........................ [PASS in 0.06s]
+15:54:59  26 of 28 PASS not_null_mart_monthly_metrics_billing_month ...................... [PASS in 0.07s]
+15:54:59  
+15:54:59  Finished running 2 table models, 22 data tests, 4 view models in 0 hours 0 minutes and 1.79 seconds (1.79s).
+15:54:59  
+15:54:59  Completed successfully
+15:54:59  
+15:54:59  Done. PASS=28 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=28
